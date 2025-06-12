@@ -1,4 +1,12 @@
-from tools import generate_bash, explain_bash, explain_linux, generate_powershell, explain_powershell, explain_windows
+from tools import (
+    generate_bash,
+    explain_bash,
+    explain_linux,
+    generate_powershell,
+    explain_powershell,
+    explain_windows,
+    tutor_mode
+)
 
 def main():
     last_output = ""
@@ -11,8 +19,9 @@ def main():
         print("4. Generate a PowerShell script")
         print("5. Break down a PowerShell script")
         print("6. Explain a Windows/PowerShell concept")
-        print("7. Exit")
-        choice = input("Choose an option (1–7): ")
+        print("7. AI Tutor Mode (Ask GPT)")
+        print("8. Exit")
+        choice = input("Choose an option (1–8): ")
 
         if choice == "1":
             last_output = generate_bash.generate_bash_script()
@@ -27,6 +36,8 @@ def main():
         elif choice == "6":
             last_output = explain_windows.explain_windows_concept()
         elif choice == "7":
+            tutor_mode.interactive_tutor()
+        elif choice == "8":
             print("\nGoodbye!")
             break
         else:
